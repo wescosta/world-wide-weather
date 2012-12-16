@@ -51,9 +51,9 @@
 	var position = {
 		load: function() {
 			if (!opts.position && navigator.geolocation) {
-				position.get(function(position, status) {
+				position.get(function(_position, status) {
 					if (status == "OK")
-						position.set(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+						position.set(new google.maps.LatLng(_position.coords.latitude, _position.coords.longitude));
 					else
 						$.error("[world-wide-weather] Unable to load client position. " + status.message);
 				});
