@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">World Wide Weather</string>
+    <string name="menu_settings">Settings</string>
+    <string name="webapp_url">http://world-wide-weather.appspot.com</string>
+</resources>
