@@ -22,7 +22,6 @@
 	</dependencies>
 
 	<build>
-		<finalName>world-wide-weather-android</finalName>
 		<plugins>
 			<plugin>
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
