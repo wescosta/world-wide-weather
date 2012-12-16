@@ -15,7 +15,7 @@
 	</modules>
 
 	<build>
-	    <finalName>${parent.artifactId}</finalName>
+	    <finalName>${project.parent.artifactId}</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
