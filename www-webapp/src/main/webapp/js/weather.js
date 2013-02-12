@@ -99,13 +99,18 @@
 
 	$.fn.weather.settings = {
 		center: brazil,
-		zoom: 4,
-		minZoom: 2,
+		zoom: 12,
+		minZoom: 4,
 		maxZoom: 12,
-		temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT,
+		temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS,
 		windSpeedUnits: google.maps.weather.WindSpeedUnit.KILOMETERS_PER_HOUR,
-		mapTypeId: google.maps.MapTypeId.SATELLITE,
+		cloud: false,
+		panControl: false,
 		streetViewControl: false,
-		cloud: false
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		mapTypeControlOptions: {
+		   style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+		   position: google.maps.ControlPosition.TOP_LEFT
+	    	}
 	};
 })(jQuery);
