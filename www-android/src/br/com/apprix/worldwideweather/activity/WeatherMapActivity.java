@@ -1,15 +1,13 @@
-package com.apprix.worldwideweather.activity;
+package br.com.apprix.worldwideweather.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.webkit.WebView;
-
-import com.apprix.worldwideweather.R;
+import br.com.apprix.worldwideweather.R;
 
 public class WeatherMapActivity extends Activity {
-	
 
 	@Override
 	@SuppressLint("SetJavaScriptEnabled")
