@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>World Wide Weather</title>
+    	<meta charset="utf-8">
         <meta name="google-site-verification" content="BDdlj9gQzJWKVwBvY8VZVXW7vjW7X-9h9ahh7kPVly4"/>
-		<meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
-		<!--link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" /-->
 		<link href="css/weather.css" rel="stylesheet">
+        <title>WWW - World Wide Weather</title>
 	</head>
 	<body>
-		<div id="page" data-role="page">
-			<div data-role="header">
-				<h1>World Wide Weather</h1>
-			</div>
-			<div id="content" data-role="content">
-				<div id="map-canvas"></div>
-			</div>
-		</div>
-        
+    	<main>
+            <nav>World Wide Weather</nav>
+            <div id="map-canvas"></div>
+        </main>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<!--script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script-->
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=weather"></script>
 	<script src="js/weather.js"></script>
 	
 	<script type="text/javascript">
-		$(document).ready(function() {
+		$(function() {
 			$("#map-canvas").weather();
 		});
 	</script>
