@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="google-site-verification" content="BDdlj9gQzJWKVwBvY8VZVXW7vjW7X-9h9ahh7kPVly4"/>
-		<meta charset="utf-8">
 		<title>World Wide Weather</title>
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <meta name="google-site-verification" content="BDdlj9gQzJWKVwBvY8VZVXW7vjW7X-9h9ahh7kPVly4"/>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+		<!--link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" /-->
 		<link href="css/weather.css" rel="stylesheet">
 	</head>
 	<body>
@@ -16,10 +17,9 @@
 				<div id="map-canvas"></div>
 			</div>
 		</div>
-	</body>
-	
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+        
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<!--script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script-->
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=weather"></script>
 	<script src="js/weather.js"></script>
 	
@@ -28,7 +28,8 @@
 			$("#map-canvas").weather();
 		});
 	</script>
-
+        
+	</body>
 	<script type="text/javascript">
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-37069283-1']);
