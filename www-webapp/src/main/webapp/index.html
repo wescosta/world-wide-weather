@@ -9,6 +9,9 @@
         <title>WWW - World Wide Weather</title>
 	</head>
 	<body>
+    	<figure class="entrada">
+        	<img src="imagens/www.png" class="imagem-intro">
+        </figure>
     	<main>
             <nav class="menu">
             	<ul>
@@ -25,6 +28,13 @@
 	<script src="js/weather.js"></script>
 	<script type="text/javascript">
 		$(function() {
+			var entrada = function() {
+				/*google.maps.event.addListenerOnce(map, 'idle', function(){*/
+					$('.entrada').fadeOut('slow');
+				/*});*/
+			}		
+			window.setInterval(entrada, 5000);
+			
 			$("#map-canvas").weather();
 		});
 	</script>

@@ -94,7 +94,7 @@
 		} else {
 			$.error("[world-wide-weather] Unsuported parameter " + _opts);
 		}
-
+		
 	};
 
 	$.fn.weather.settings = {
