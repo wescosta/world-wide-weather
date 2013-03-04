@@ -99,7 +99,7 @@
 
 	$.fn.weather.settings = {
 		center: brazil,
-		zoom: 12,
+		zoom: 8,
 		minZoom: 4,
 		maxZoom: 12,
 		temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS,
