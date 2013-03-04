@@ -107,6 +107,9 @@
 		cloud: false,
 		panControl: false,
 		streetViewControl: false,
+		mapTypeControl: false,
+		navigationControl: false,
+		streetViewControl: false,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		mapTypeControlOptions: {
 		   style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,

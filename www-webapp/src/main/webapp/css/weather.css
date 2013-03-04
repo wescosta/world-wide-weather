@@ -54,6 +54,9 @@ body {
 	top:10px;
 	background-color:#fff;
 }
+	.menu.anima {
+		transition: margin-top 6s ease-in-out;
+	}
 	.menu ul { 
 		list-style:none; 
 		display:table-row; 
@@ -73,7 +76,7 @@ body {
 		}
 		.menu ul li a { margin-top:0.22em; }
 		.menu ul li a:hover {
-			background-color:#CCC;
+			background-color:#eaeaea;
 		}
 		
 		.menu ul li.borda-baixo { border-bottom:1px solid #d5d5d5; }
