@@ -40,7 +40,8 @@
 		entrada : function() {
 			/*google.maps.event.addListenerOnce(map, 'idle', function(){*/
 				$('.entrada').fadeOut('slow');
-				www.animacao.start(500, -250, -200);
+				$('.menu a').on('click', function() { alert('teste'); });
+				//www.animacao.start(500, -250, -200);
 			/*});*/
 		},
 		animacao : {
@@ -60,7 +61,7 @@
 		}
 	};
 		$(function() {	
-			www.entrada();
+			window.setInterval(www.entrada, 5000);
 			$("#map-canvas").weather();
 		});
 	</script>
