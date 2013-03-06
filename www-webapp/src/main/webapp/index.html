@@ -36,20 +36,31 @@
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=weather"></script>
 	<script src="js/weather.js"></script>
 	<script type="text/javascript">
-	var anima = function() {
-		$('.menu').delay(500).animate({
-				top: '-250'
-		  }, 1000);
-	}
-		$(function() {
-			var entrada = function() {
-				/*google.maps.event.addListenerOnce(map, 'idle', function(){*/
-					$('.entrada').fadeOut('slow');
-					//anima();
-				/*});*/
-			}		
-			window.setInterval(entrada, 500);
-			
+	var www = {
+		entrada : function() {
+			/*google.maps.event.addListenerOnce(map, 'idle', function(){*/
+				$('.entrada').fadeOut('slow');
+				www.animacao.start(500, -250, -200);
+			/*});*/
+		},
+		animacao : {
+			start : function(delay, posMenu, posArcoIris) {
+				$('.menu').delay(delay).animate({
+					top: posMenu
+				}, 1000);
+				$('.arco-iris').delay(delay).animate({
+					top: posArcoIris
+				}, 1500, function() {
+					www.bindElementos();
+				});
+			}
+		},
+		bindElementos : function() {
+			$('.arco-iris').on('click', function() { www.animacao.start(0, 10, -20) });
+		}
+	};
+		$(function() {	
+			www.entrada();
 			$("#map-canvas").weather();
 		});
 	</script>

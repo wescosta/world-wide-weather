@@ -30,6 +30,7 @@ body {
   padding: 0px !important;
 }
 
+/* Mobile first! */
 /* Tela de entrada */
 .entrada {
 	position:absolute;
@@ -53,7 +54,10 @@ body {
 	right:10px;
 	top:10px;
 	background-color:#fff;
-	-webkit-transform: perspective( 600px ) rotateY( -45deg );
+	display:block;
+	
+	transform: perspective( 600px ) rotateY( -35deg );
+	-webkit-transform: perspective( 600px ) rotateY( -35deg );
 }
 	
 	.menu ul { 
@@ -88,6 +92,9 @@ body {
 	z-index:9998;
 	right:36px;
 	top:-20px;
+	display:block;
+	
+	transform: perspective( 600px ) rotateY( -45deg );
 	-webkit-transform: perspective( 600px ) rotateY( -45deg );
 }
 	.arco-iris div {
