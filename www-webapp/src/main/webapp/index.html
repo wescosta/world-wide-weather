@@ -38,10 +38,11 @@
 	<script type="text/javascript">
 	var www = {
 		entrada : function() {
+			var tamanhoArcoIris = $('.arco-iris').height() - 50;
 			/*google.maps.event.addListenerOnce(map, 'idle', function(){*/
 				$('.entrada').fadeOut('slow');
-				$('.menu a').on('click', function() { alert('teste'); });
-				//www.animacao.start(500, -250, -200);
+				www.animacao.start(500, -250, -tamanhoArcoIris);
+				//window.clearInterval(intervalo);
 			/*});*/
 		},
 		animacao : {
@@ -54,14 +55,31 @@
 				}, 1500, function() {
 					www.bindElementos();
 				});
+			},
+			interacao : function(posMenu, posArcoIris) {
+				$('.menu').animate({
+					top: posMenu
+				}, 1000);
+				$('.arco-iris').animate({
+					top: posArcoIris
+				}, 1500);
 			}
 		},
 		bindElementos : function() {
-			$('.arco-iris').on('click', function() { www.animacao.start(0, 10, -20) });
+			var tamanhoArcoIris = $('.arco-iris').height() - 50;
+			
+			$('.arco-iris').toggle(function() { 
+					www.animacao.interacao(10, 0);
+				},
+				function() {
+					www.animacao.interacao(-250, -tamanhoArcoIris);
+				}
+			);
 		}
 	};
 		$(function() {	
-			window.setInterval(www.entrada, 5000);
+			//var intervalo = window.setInterval(www.entrada, 5000);
+			www.entrada();
 			$("#map-canvas").weather();
 		});
 	</script>

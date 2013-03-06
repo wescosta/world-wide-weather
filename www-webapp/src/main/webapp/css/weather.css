@@ -56,8 +56,8 @@ body {
 	background-color:#fff;
 	display:block;
 	
-	transform: perspective( 600px ) rotateY( -35deg );
-	-webkit-transform: perspective( 600px ) rotateY( -35deg );
+	/*transform: perspective( 600px ) rotateY( -35deg );
+	-webkit-transform: perspective( 600px ) rotateY( -35deg );*/
 }
 	
 	.menu ul { 
@@ -90,16 +90,16 @@ body {
 	width:42px;
 	position:absolute;
 	z-index:9998;
-	right:36px;
-	top:-20px;
+	right:39px;
+	top:0;
 	display:block;
 	
-	transform: perspective( 600px ) rotateY( -45deg );
-	-webkit-transform: perspective( 600px ) rotateY( -45deg );
+	/*transform: perspective( 600px ) rotateY( -45deg );
+	-webkit-transform: perspective( 600px ) rotateY( -45deg );*/
 }
 	.arco-iris div {
 		width:6px;
-		height:180px;
+		height:150px;
 	}
 	.arco-iris .vermelho { background-color: #ff0000; }
 	.arco-iris .laranja { background-color: #ff8000; }
@@ -120,12 +120,12 @@ body {
 		}
 		.arco-iris {
 			width:100px;
-			right:40px;
-			top:-20px;
+			right:56px;
+			top:0;
 		}
 		.arco-iris div {
 			width:13px;
-			height:300px;
+			height:270px;
 		}
 
 @media print {
