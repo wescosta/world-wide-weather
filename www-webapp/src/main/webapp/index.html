@@ -12,6 +12,15 @@
     	<figure class="entrada">
         	<img src="imagens/www.png" class="imagem-intro">
         </figure>
+        <div class="arco-iris">
+        	<div class="vermelho esquerda"></div>
+            <div class="laranja esquerda"></div>
+            <div class="amarelo esquerda"></div>
+            <div class="verde esquerda"></div>
+            <div class="azul esquerda"></div>
+            <div class="roxo esquerda"></div>
+            <div class="lilas esquerda"></div>
+        </div>
     	<main>
             <nav class="menu">
             	<ul>
@@ -27,13 +36,19 @@
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=weather"></script>
 	<script src="js/weather.js"></script>
 	<script type="text/javascript">
+	var anima = function() {
+		$('.menu').delay(500).animate({
+				top: '-250'
+		  }, 1000);
+	}
 		$(function() {
 			var entrada = function() {
 				/*google.maps.event.addListenerOnce(map, 'idle', function(){*/
 					$('.entrada').fadeOut('slow');
+					//anima();
 				/*});*/
 			}		
-			window.setInterval(entrada, 5000);
+			window.setInterval(entrada, 500);
 			
 			$("#map-canvas").weather();
 		});
