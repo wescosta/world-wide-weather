@@ -36,51 +36,61 @@
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=weather"></script>
 	<script src="js/weather.js"></script>
 	<script type="text/javascript">
-	var www = {
-		entrada : function() {
-			var tamanhoArcoIris = $('.arco-iris').height() - 50;
-			/*google.maps.event.addListenerOnce(map, 'idle', function(){*/
-				$('.entrada').fadeOut('slow');
-				www.animacao.start(500, -250, -tamanhoArcoIris);
-				//window.clearInterval(intervalo);
-			/*});*/
-		},
-		animacao : {
-			start : function(delay, posMenu, posArcoIris) {
-				$('.menu').delay(delay).animate({
-					top: posMenu
-				}, 1000);
-				$('.arco-iris').delay(delay).animate({
-					top: posArcoIris
-				}, 1500, function() {
-					www.bindElementos();
-				});
+		var www = {
+			variaveis : {
+				tamanhoArcoIris : -($('.arco-iris').height() - 50),
+				tamanhoMenu : -($('.menu').height() + 10)
 			},
-			interacao : function(posMenu, posArcoIris) {
-				$('.menu').animate({
-					top: posMenu
-				}, 1000);
-				$('.arco-iris').animate({
-					top: posArcoIris
-				}, 1500);
-			}
-		},
-		bindElementos : function() {
-			var tamanhoArcoIris = $('.arco-iris').height() - 50;
-			
-			$('.arco-iris').toggle(function() { 
-					www.animacao.interacao(10, 0);
+			entrada : function() {
+				/*google.maps.event.addListenerOnce(map, 'idle', function(){*/
+					$('.entrada').fadeOut('slow');
+					www.animacao.start(500, www.variaveis.tamanhoMenu, www.variaveis.tamanhoArcoIris);
+					window.clearInterval(intervalo);
+				/*});*/
+			},
+			animacao : {
+				start : function(delay, posMenu, posArcoIris) {
+					$('.menu').delay(delay).animate({
+						top: posMenu
+					}, 1000);
+					$('.arco-iris').delay(delay).animate({
+						top: posArcoIris
+					}, 1500, function() {
+						www.bindElementos();
+					});
 				},
-				function() {
-					www.animacao.interacao(-250, -tamanhoArcoIris);
+				interacao : function(posMenu, posArcoIris) {
+					$('.menu').animate({
+						top: posMenu
+					}, 1000);
+					$('.arco-iris').animate({
+						top: posArcoIris
+					}, 1500);
 				}
-			);
-		}
-	};
-		$(function() {	
-			//var intervalo = window.setInterval(www.entrada, 5000);
-			www.entrada();
+			},
+			bindElementos : function() {
+				$('.arco-iris').toggle(function() { 
+						www.animacao.interacao(10, 0);
+					},
+					function() {
+						www.animacao.interacao(www.variaveis.tamanhoMenu, www.variaveis.tamanhoArcoIris);
+					}
+				);
+			}
+		};
+		//isto aqui acaba quando o loading passar a ser nativo:
+		var intervalo = window.setInterval(www.entrada, 5000);
+		
+		$(function() {
 			$("#map-canvas").weather();
+		});
+		$(window).resize(function() {
+			//atualiza valores
+			www.variaveis.tamanhoArcoIris = new Object();
+			www.variaveis.tamanhoArcoIris = -($('.arco-iris').height() - 50);
+			//atualiza valores
+			www.variaveis.tamanhoMenu = new Object();
+			www.variaveis.tamanhoMenu = -($('.menu').height() + 10);
 		});
 	</script>
         
