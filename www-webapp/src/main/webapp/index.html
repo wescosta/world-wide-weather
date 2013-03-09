@@ -24,8 +24,8 @@
     	<main>
             <nav class="menu">
             	<ul>
-                	<li class="borda-baixo borda-direita esquerda"><a>C</a></li>
-                    <li class="borda-baixo esquerda"><a>F</a></li>
+                	<li class="borda-baixo borda-direita esquerda"><a id="celsius">C</a></li>
+                    <li class="borda-baixo esquerda"><a id="fahrenheit">F</a></li>
                     <li class="borda-direita clear esquerda"><a>+</a></li>
                     <li class="esquerda"><a>-</a></li>
                 </ul>
@@ -35,45 +35,50 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=weather"></script>
 	<script src="js/weather.js"></script>
+    <script src="js/jquery.transit.min.js"></script>
 	<script type="text/javascript">
 		var www = {
-			variaveis : {
-				tamanhoArcoIris : -($('.arco-iris').height() - 50),
-				tamanhoMenu : -($('.menu').height() + 10)
+			vars : {
+				tempo : 2000,
 			},
 			entrada : function() {
 				/*google.maps.event.addListenerOnce(map, 'idle', function(){*/
 					$('.entrada').fadeOut('slow');
-					www.animacao.start(500, www.variaveis.tamanhoMenu, www.variaveis.tamanhoArcoIris);
+					www.animacao.start();
 					window.clearInterval(intervalo);
 				/*});*/
 			},
 			animacao : {
-				start : function(delay, posMenu, posArcoIris) {
-					$('.menu').delay(delay).animate({
-						top: posMenu
-					}, 1000);
-					$('.arco-iris').delay(delay).animate({
-						top: posArcoIris
-					}, 1500, function() {
-						www.bindElementos();
-					});
+				start : function() {
+					$('.menu').transition({ 
+							marginTop: -240,
+							delay:500,
+						}, 2000, 'ease', function() {
+							www.bindElementos();	
+						});
 				},
-				interacao : function(posMenu, posArcoIris) {
-					$('.menu').animate({
-						top: posMenu
-					}, 1000);
-					$('.arco-iris').animate({
-						top: posArcoIris
-					}, 1500);
+				aparece : function() {
+					$('.menu').transition({ 
+							marginTop: 10,
+							top: 0
+						}, 1000, 'ease');
+				},
+				esconde : function() {
+					$('.menu').transition({ 
+						marginTop: -240,
+						top: 0
+					}, 1000, 'ease');
 				}
 			},
 			bindElementos : function() {
+				$('.menu').on('click', '#celsius', function(){ $("#map-canvas").weather("celsius"); })
+								  .on('click', '#fahrenheit', function(){ $("#map-canvas").weather("fahrenheit"); });
+				
 				$('.arco-iris').toggle(function() { 
-						www.animacao.interacao(10, 0);
+						www.animacao.aparece();
 					},
 					function() {
-						www.animacao.interacao(www.variaveis.tamanhoMenu, www.variaveis.tamanhoArcoIris);
+						www.animacao.esconde();
 					}
 				);
 			}
@@ -83,14 +88,6 @@
 		
 		$(function() {
 			$("#map-canvas").weather();
-		});
-		$(window).resize(function() {
-			//atualiza valores
-			www.variaveis.tamanhoArcoIris = new Object();
-			www.variaveis.tamanhoArcoIris = -($('.arco-iris').height() - 50);
-			//atualiza valores
-			www.variaveis.tamanhoMenu = new Object();
-			www.variaveis.tamanhoMenu = -($('.menu').height() + 10);
 		});
 	</script>
         

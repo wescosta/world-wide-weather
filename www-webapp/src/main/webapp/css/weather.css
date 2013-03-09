@@ -9,7 +9,7 @@
 /* Classes genéricas */
 .esquerda { float:left; }
 .clear { clear:both; }
-.invisivel { display:none; }
+.invisivel { display:none !important; }
 
 /* Configurações gerais*/
 html, body, main {
@@ -55,11 +55,7 @@ body {
 	top:10px;
 	background-color:#fff;
 	display:block;
-	
-	/*transform: perspective( 600px ) rotateY( -35deg );
-	-webkit-transform: perspective( 600px ) rotateY( -35deg );*/
 }
-	
 	.menu ul { 
 		list-style:none; 
 		display:table-row; 
@@ -91,15 +87,15 @@ body {
 	position:absolute;
 	z-index:9998;
 	right:39px;
-	top:0;
+	top:-130px;
 	display:block;
 	
-	/*transform: perspective( 600px ) rotateY( -45deg );
-	-webkit-transform: perspective( 600px ) rotateY( -45deg );*/
+	transform: rotate( -49deg );
+	-webkit-transform: rotate( -49deg );
 }
 	.arco-iris div {
 		width:6px;
-		height:150px;
+		height:300px;
 	}
 	.arco-iris .vermelho { background-color: #ff0000; }
 	.arco-iris .laranja { background-color: #ff8000; }
@@ -121,11 +117,11 @@ body {
 		.arco-iris {
 			width:100px;
 			right:56px;
-			top:0;
+			top:-170px;
 		}
 		.arco-iris div {
 			width:13px;
-			height:270px;
+			height:400px;
 		}
 
 @media print {
