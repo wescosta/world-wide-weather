@@ -94,17 +94,21 @@ body {
 	-webkit-transform: rotate( -49deg );
 }
 	.arco-iris * {
+		width:3px;
+		height:400px;
+	}
+	.arco-iris.inverso * { 
 		width:6px;
-		height:300px;
+		height:410px;
 	}
 	.arco-iris.inverso {
 		transform: rotate( 49deg );
 		-webkit-transform: rotate( 49deg );
-		top:-30px;
-		right:-130px;
 		z-index:10000;
+		margin-top:-140px;
 		cursor:pointer;
 	}
+	.arco-iris.inverso.init { margin-top:-20px !important }
 	.arco-iris .vermelho { background-color: #ff0000; }
 	.arco-iris .laranja { background-color: #ff8000; }
 	.arco-iris .amarelo { background-color: #ffff00; }
@@ -131,10 +135,12 @@ body {
 			width:7px;
 			height:400px;
 		}
+		.arco-iris.inverso { margin-top:0; }
 		.arco-iris.inverso * { 
 			width:13px;
 			height:400px;
 		}
+		.arco-iris.inverso.init { margin-top:0 !important }
 
 @media print {
   html, body {

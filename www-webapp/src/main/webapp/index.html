@@ -21,7 +21,7 @@
             <div class="roxo esquerda"></div>
             <div class="lilas esquerda"></div>
         </div>
-        <div class="arco-iris inverso" id="ativa-menu">
+        <div class="arco-iris inverso init" id="ativa-menu">
             <div class="lilas esquerda"></div>
             <div class="roxo esquerda"></div>
             <div class="azul esquerda"></div>
@@ -50,7 +50,8 @@
 			vars : {
 				menu : $('.menu'),
 				arcoTraz : $('#elemento-menu'),
-				arcoFrente : $('#ativa-menu')
+				arcoFrente : $('#ativa-menu'),
+				tamanhoMenu : $('.menu').height()
 			},
 			entrada : function() {
 				/*google.maps.event.addListenerOnce(map, 'idle', function(){*/
@@ -68,10 +69,10 @@
 					www.vars.arcoTraz.transition({
 							top:-170,
 							delay:500
-					}, 1500, 'ease');
+					}, 1100, 'ease');
 					www.vars.arcoFrente.transition({
 							right:-400,
-					}, 900, 'ease').transition({
+					}, 900, 'ease', function() { $(this).removeClass('init'); }).transition({
 							top:-10,
 							right:-110,
 							rotate: '49deg'
@@ -88,17 +89,17 @@
 					www.vars.arcoFrente.transition({
 							top:-400,
 							right:-400
-					}, 900, 'ease').transition({
+					}, 900, 'ease', function() { $(this).addClass('init'); }).transition({
 							top:-140,
 							right:-140,
 							rotate: '90deg',
-							delay:300
+							delay:100
 					}).transition({ right:-160 }, 200);
 				}
 			},
 			bindElementos : function() {
-				www.vars.menu.on('click', '#celsius', function(){ $("#map-canvas").weather("celsius"); })
-								  		   .on('click', '#fahrenheit', function(){ $("#map-canvas").weather("fahrenheit"); });
+				www.vars.menu.on('click', '#celsius', function() { $("#map-canvas").weather("celsius"); })
+								  		   .on('click', '#fahrenheit', function() { $("#map-canvas").weather("fahrenheit"); });
 				
 				www.vars.arcoFrente.toggle(function() { 
 						www.animacao.aparece();
