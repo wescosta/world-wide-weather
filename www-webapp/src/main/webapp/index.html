@@ -12,7 +12,7 @@
     	<figure class="entrada">
         	<img src="imagens/www.png" class="imagem-intro">
         </figure>
-        <div class="arco-iris">
+        <div class="arco-iris" id="elemento-menu">
         	<div class="vermelho esquerda"></div>
             <div class="laranja esquerda"></div>
             <div class="amarelo esquerda"></div>
@@ -21,7 +21,7 @@
             <div class="roxo esquerda"></div>
             <div class="lilas esquerda"></div>
         </div>
-        <div class="arco-iris inverso">
+        <div class="arco-iris inverso" id="ativa-menu">
             <div class="lilas esquerda"></div>
             <div class="roxo esquerda"></div>
             <div class="azul esquerda"></div>
@@ -48,42 +48,59 @@
 	<script type="text/javascript">
 		var www = {
 			vars : {
-				tempo : 2000,
+				menu : $('.menu'),
+				arcoTraz : $('#elemento-menu'),
+				arcoFrente : $('#ativa-menu')
 			},
 			entrada : function() {
 				/*google.maps.event.addListenerOnce(map, 'idle', function(){*/
 					$('.entrada').fadeOut('slow');
-					www.animacao.start();
+					www.bindElementos();
 					window.clearInterval(intervalo);
 				/*});*/
 			},
 			animacao : {
-				start : function() {
-					$('.menu').transition({ 
-							marginTop: -240,
-							delay:500,
-						}, 2000, 'ease', function() {
-							www.bindElementos();	
-						});
-				},
 				aparece : function() {
-					$('.menu').transition({ 
+					www.vars.menu.transition({ 
 							marginTop: 10,
 							top: 0
-						}, 1000, 'ease');
+					}, 1000, 'ease');
+					www.vars.arcoTraz.transition({
+							top:-170,
+							delay:500
+					}, 1500, 'ease');
+					www.vars.arcoFrente.transition({
+							right:-400,
+					}, 900, 'ease').transition({
+							top:-10,
+							right:-110,
+							rotate: '49deg'
+					}).transition({ top: -30, right:-130 }, 200);
 				},
 				esconde : function() {
-					$('.menu').transition({ 
+					www.vars.menu.transition({ 
 						marginTop: -240,
 						top: 0
-					}, 1000, 'ease');
+					}, 500, 'ease');
+					www.vars.arcoTraz.transition({
+							top:-360
+					}, 400, 'ease');
+					www.vars.arcoFrente.transition({
+							top:-400,
+							right:-400
+					}, 900, 'ease').transition({
+							top:-140,
+							right:-140,
+							rotate: '90deg',
+							delay:300
+					}).transition({ right:-160 }, 200);
 				}
 			},
 			bindElementos : function() {
-				$('.menu').on('click', '#celsius', function(){ $("#map-canvas").weather("celsius"); })
-								  .on('click', '#fahrenheit', function(){ $("#map-canvas").weather("fahrenheit"); });
+				www.vars.menu.on('click', '#celsius', function(){ $("#map-canvas").weather("celsius"); })
+								  		   .on('click', '#fahrenheit', function(){ $("#map-canvas").weather("fahrenheit"); });
 				
-				$('.arco-iris').toggle(function() { 
+				www.vars.arcoFrente.toggle(function() { 
 						www.animacao.aparece();
 					},
 					function() {
@@ -97,6 +114,7 @@
 		
 		$(function() {
 			$("#map-canvas").weather();
+			www.animacao.esconde();
 		});
 	</script>
         

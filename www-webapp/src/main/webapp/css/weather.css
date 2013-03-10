@@ -93,16 +93,17 @@ body {
 	transform: rotate( -49deg );
 	-webkit-transform: rotate( -49deg );
 }
+	.arco-iris * {
+		width:6px;
+		height:300px;
+	}
 	.arco-iris.inverso {
 		transform: rotate( 49deg );
 		-webkit-transform: rotate( 49deg );
 		top:-30px;
 		right:-130px;
 		z-index:10000;
-	}
-	.arco-iris div {
-		width:6px;
-		height:300px;
+		cursor:pointer;
 	}
 	.arco-iris .vermelho { background-color: #ff0000; }
 	.arco-iris .laranja { background-color: #ff8000; }
@@ -126,7 +127,11 @@ body {
 			right:56px;
 			top:-170px;
 		}
-		.arco-iris div {
+		.arco-iris * {
+			width:7px;
+			height:400px;
+		}
+		.arco-iris.inverso * { 
 			width:13px;
 			height:400px;
 		}
