@@ -85,7 +85,7 @@ body {
 		.botao {
 			width:25px;
 			height:25px;
-			background-color:#ffff00;
+			background-color:#fff;
 			position:absolute;
 			z-index:9999;
 			top:47px;
@@ -95,8 +95,74 @@ body {
 			cursor:pointer;
 			border:1px solid #d5d5d5;
 		}
-			.botao:hover { background-color: #fff; }
-
+			.botao:hover { background-color: #d5d5d5; }
+		
+		.cor {
+			width:25px;
+			height:25px;
+			position:absolute;
+			border-radius:40px;
+			-webkit-border-radius:40px;
+			/*opacity:0.50;*/
+		}
+			.lilas { border-color:#4b0082; }
+			.roxa { border-color:#9400d3; }
+			.azul { border-color:#0000ff; }
+			.verde { border-color:#008000; }
+			.amarela { border-color:#ffff00; }
+			.laranja { border-color:#ff8000; }
+			.vermelha { border-color:#ff0000; }
+			
+			.primeira {
+				border-width:2px;
+				border-style:solid;
+				top:46px;
+				right:46px;
+				z-index:9997;
+			}
+			.segunda {
+				border-width:3px;
+				border-style:solid;
+				top:45px;
+				right:45px;
+				z-index:9996;
+			}
+			.terceira {
+				border-width:4px;
+				border-style:solid;
+				top:44px;
+				right:44px;
+				z-index:9995;
+			}
+			.quarta {
+				border-width:5px;
+				border-style:solid;
+				top:43px;
+				right:43px;
+				z-index:9994;
+			}
+			.quinta {
+				border-width:6px;
+				border-style:solid;
+				top:42px;
+				right:42px;
+				z-index:9993;
+			}
+			.sexta {
+				border-width:7px;
+				border-style:solid;
+				top:41px;
+				right:41px;
+				z-index:9992;
+			}
+			.setima {
+				border-width:8px;
+				border-style:solid;
+				top:40px;
+				right:40px;
+				z-index:9991;
+			}
+/*
 .arco-iris {
 	width:100%;
 	position:absolute;
@@ -115,7 +181,7 @@ body {
 	.arco-iris .azul { background-color: #0000ff; }
 	.arco-iris .roxo { background-color: #4b0082; }
 	.arco-iris .lilas { background-color: #9400d3; }
-
+*/
 /* Tela desktop */
 @media screen and (min-width: 40.5em) {
 		/* Menu principal */
@@ -132,14 +198,58 @@ body {
 			right:90px;
 		}
 		
-		.arco-iris {
-			width:100%;
-			top:10px;
+		.cor {
+				width:40px;
+				height:40px;
 		}
-		.arco-iris * {
-			width:100%;
-			height:3px;
-		}
+			.primeira {
+				border-width:4px;
+				top:89px;
+				right:87px;
+				z-index:9997;
+			}
+			.segunda {
+				border-width:6px;
+				border-style:solid;
+				top:87px;
+				right:85px;
+				z-index:9996;
+			}
+			.terceira {
+				border-width:8px;
+				border-style:solid;
+				top:85px;
+				right:83px;
+				z-index:9995;
+			}
+			.quarta {
+				border-width:10px;
+				border-style:solid;
+				top:83px;
+				right:81px;
+				z-index:9994;
+			}
+			.quinta {
+				border-width:12px;
+				border-style:solid;
+				top:81px;
+				right:79px;
+				z-index:9993;
+			}
+			.sexta {
+				border-width:14px;
+				border-style:solid;
+				top:79px;
+				right:77px;
+				z-index:9992;
+			}
+			.setima {
+				border-width:16px;
+				border-style:solid;
+				top:77px;
+				right:75px;
+				z-index:9991;
+			}
 
 @media print {
   html, body {
