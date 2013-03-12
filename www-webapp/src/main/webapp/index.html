@@ -19,7 +19,7 @@
             <div class="verde esquerda"></div>
             <div class="azul esquerda"></div>
             <div class="roxo esquerda"></div>
-            <div class="lilas esquerda">a</div>
+            <div class="lilas esquerda"></div>
         </div>
     	<main>
             <nav class="menu">
@@ -30,6 +30,7 @@
                     <li class="esquerda"><a>-</a></li>
                 </ul>
             </nav>
+            <div class="botao"></div>
             <div id="map-canvas"></div>
         </main>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -38,9 +39,6 @@
     <script src="js/jquery.transit.min.js"></script>
 	<script type="text/javascript">
 		var www = {
-			vars : {
-				tempo : 2000,
-			},
 			entrada : function() {
 				/*google.maps.event.addListenerOnce(map, 'idle', function(){*/
 					$('.entrada').fadeOut('slow');
@@ -53,28 +51,26 @@
 					$('.menu').transition({ 
 							marginTop: -240,
 							delay:500,
-						}, 2000, 'ease', function() {
-							www.bindElementos();	
-						});
+						}, 1000, 'ease');
 				},
 				aparece : function() {
 					$('.menu').transition({ 
 							marginTop: 10,
 							top: 0
-						}, 1000, 'ease');
+						});
 				},
 				esconde : function() {
 					$('.menu').transition({ 
 						marginTop: -240,
 						top: 0
-					}, 1000, 'ease');
+					});
 				}
 			},
 			bindElementos : function() {
 				$('.menu').on('click', '#celsius', function(){ $("#map-canvas").weather("celsius"); })
 								  .on('click', '#fahrenheit', function(){ $("#map-canvas").weather("fahrenheit"); });
 				
-				$('.arco-iris').toggle(function() { 
+				$('.botao').toggle(function() { 
 						www.animacao.aparece();
 					},
 					function() {
@@ -88,6 +84,7 @@
 		
 		$(function() {
 			$("#map-canvas").weather();
+			www.bindElementos();	
 		});
 	</script>
         
