@@ -85,7 +85,7 @@ body {
 		.botao {
 			width:25px;
 			height:25px;
-			background-color:#fff;
+			background-color:#ffff00;
 			position:absolute;
 			z-index:9999;
 			top:47px;
@@ -95,7 +95,7 @@ body {
 			cursor:pointer;
 			border:1px solid #d5d5d5;
 		}
-			.botao:hover { background-color: #ffff00; }
+			.botao:hover { background-color: #fff; }
 
 .arco-iris {
 	width:100%;
