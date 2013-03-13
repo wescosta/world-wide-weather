@@ -118,7 +118,7 @@
 		zoom: 10,
 		minZoom: 4,
 		maxZoom: 12,
-		clickable:false,
+		clickable:false, //por enquanto desabilitei a infoWindow
 		suppressInfoWindows:false,
 		disableDoubleClickZoom:true,
 		temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS,
