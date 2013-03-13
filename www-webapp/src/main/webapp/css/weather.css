@@ -162,7 +162,7 @@ body {
 				right:40px;
 				z-index:9991;
 			}
-/*
+
 .arco-iris {
 	width:100%;
 	position:absolute;
@@ -172,7 +172,7 @@ body {
 }
 	.arco-iris * {
 		width:100%;
-		height:3px;
+		height:1px;
 	}
 	.arco-iris .vermelho { background-color: #ff0000; }
 	.arco-iris .laranja { background-color: #ff8000; }
@@ -181,7 +181,7 @@ body {
 	.arco-iris .azul { background-color: #0000ff; }
 	.arco-iris .roxo { background-color: #4b0082; }
 	.arco-iris .lilas { background-color: #9400d3; }
-*/
+
 /* Tela desktop */
 @media screen and (min-width: 40.5em) {
 		/* Menu principal */
@@ -196,6 +196,10 @@ body {
 			height:40px;
 			top:92px;
 			right:90px;
+		}
+		
+		.arco-iris * {
+			height:2px;
 		}
 		
 		.cor {

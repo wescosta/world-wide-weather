@@ -20,6 +20,23 @@
 		},
 		cloud: function() {
 			cloudLayer.setMap(cloudLayer.getMap() ? null: map);
+		},
+		// Wesley, se quiser, pode melhorar esta dinamica de zoom
+		zoomMais: function() {
+			var valor = map.getZoom(); 
+			valor++;		
+			if (valor <= 12) {
+				weatherLayer.setOptions({ zoom:valor });
+				valor++;
+			}		
+		},
+		zoomMenos: function() {
+			var valor = map.getZoom();
+			valor--;		
+			if (valor >= 4) { 
+				weatherLayer.setOptions({ zoom:valor });
+				valor--;
+			}
 		}
 	};
 
@@ -27,10 +44,9 @@
 		map: function() {
 			if (!map) {
 				map = new google.maps.Map($(container)[0], opts);
-				
 				build.layers.weather().cloud();
-				
 				position.load();
+			
 			}
 		},
 		layers: {
@@ -102,6 +118,9 @@
 		zoom: 10,
 		minZoom: 4,
 		maxZoom: 12,
+		clickable:false,
+		suppressInfoWindows:false,
+		disableDoubleClickZoom:true,
 		temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS,
 		windSpeedUnits: google.maps.weather.WindSpeedUnit.KILOMETERS_PER_HOUR,
 		cloud: false,

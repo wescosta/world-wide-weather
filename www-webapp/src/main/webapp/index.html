@@ -12,13 +12,24 @@
     	<figure class="entrada">
         	<img src="imagens/www.png" class="imagem-intro">
         </figure>
+        
+        <div class="arco-iris">
+        	<div class="vermelho"></div>
+            <div class="laranja"></div>
+            <div class="amarelo"></div>
+            <div class="verde"></div>
+            <div class="azul"></div>
+            <div class="roxo"></div>
+            <div class="lilas"></div>
+        </div>
+        
     	<main>
             <nav class="menu">
             	<ul>
                 	<li class="borda-baixo borda-direita esquerda"><a id="celsius">C</a></li>
                     <li class="borda-baixo esquerda"><a id="fahrenheit">F</a></li>
-                    <li class="borda-direita clear esquerda"><a>+</a></li>
-                    <li class="esquerda"><a>-</a></li>
+                    <li class="borda-direita clear esquerda"><a id="zoomMais">+</a></li>
+                    <li class="esquerda"><a id="zoomMenos">-</a></li>
                 </ul>
             </nav>
             <div class="botao"></div>
@@ -68,7 +79,9 @@
 			},
 			bindElementos : function() {
 				$('.menu').on('click', '#celsius', function(){ $("#map-canvas").weather("celsius"); })
-								  .on('click', '#fahrenheit', function(){ $("#map-canvas").weather("fahrenheit"); });
+								  .on('click', '#fahrenheit', function(){ $("#map-canvas").weather("fahrenheit"); })
+								  .on('click', '#zoomMais', function() { $("#map-canvas").weather("zoomMais"); })
+								  .on('click', '#zoomMenos', function() { $("#map-canvas").weather("zoomMenos"); });
 				
 				$('.botao').toggle(function() { 
 						www.animacao.aparece();
