@@ -1,0 +1,9 @@
+{
+    "files": [
+            {
+                "type":"SCRIPT",
+                "source":"js/jquery.transit.min.js",
+                "size":8.000
+            }
+    ]
+}
