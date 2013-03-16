@@ -45,7 +45,6 @@
 
 	$(function(){
 		//$('img#imagem-intro').load(function() {
-			console.log("carregou");
 			$("#map-canvas").weather();
 		//});
 	});

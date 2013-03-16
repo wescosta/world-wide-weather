@@ -46,11 +46,13 @@
 				map = new google.maps.Map($(container)[0], opts);
 				build.layers.weather().cloud();
 				position.load();
+
+				google.maps.event.addListenerOnce(map, 'idle', function(){
+					www.entrada();
+					www.bindElementos();
+				});
+
 			}
-			google.maps.event.addListenerOnce(map, 'idle', function(){
-				www.entrada();
-				www.bindElementos();
-			});
 		},
 		layers: {
 			weather: function() {
