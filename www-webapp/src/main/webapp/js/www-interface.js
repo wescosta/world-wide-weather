@@ -44,7 +44,7 @@
 		};
 
 	$(function(){
-		//$('img#imagem-intro').load(function() {
+		$('img#imagem-intro').imagesLoaded(function() {
 			$("#map-canvas").weather();
-		//});
+		});
 	});
