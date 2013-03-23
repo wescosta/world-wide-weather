@@ -13,30 +13,19 @@
 			return map;
 		},
 		celsius: function() {
-			weatherLayer.setOptions({'temperatureUnits': google.maps.weather.TemperatureUnit.CELSIUS});
+			weatherLayer.setOptions({"temperatureUnits": google.maps.weather.TemperatureUnit.CELSIUS});
 		},
 		fahrenheit: function() {
-			weatherLayer.setOptions({'temperatureUnits': google.maps.weather.TemperatureUnit.FAHRENHEIT});
+			weatherLayer.setOptions({"temperatureUnits": google.maps.weather.TemperatureUnit.FAHRENHEIT});
 		},
 		cloud: function() {
 			cloudLayer.setMap(cloudLayer.getMap() ? null: map);
 		},
-		// Wesley, se quiser, pode melhorar esta dinamica de zoom
 		zoomMais: function() {
-			var valor = map.getZoom(); 
-			valor++;		
-			if (valor <= 12) {
-				weatherLayer.setOptions({ zoom:valor });
-				valor++;
-			}		
+			map.setZoom(map.getZoom() + 1);
 		},
 		zoomMenos: function() {
-			var valor = map.getZoom();
-			valor--;		
-			if (valor >= 4) { 
-				weatherLayer.setOptions({ zoom:valor });
-				valor--;
-			}
+			map.setZoom(map.getZoom() - 1);
 		}
 	};
 
@@ -51,7 +40,6 @@
 					www.entrada();
 					www.bindElementos();
 				});
-
 			}
 		},
 		layers: {
@@ -73,10 +61,12 @@
 		load: function() {
 			if (!opts.position && navigator.geolocation) {
 				position.get(function(_position, status) {
-					if (status == "OK")
+					if (status == "OK") {
 						position.set(new google.maps.LatLng(_position.coords.latitude, _position.coords.longitude));
-					else
+					} else {
+						map.setZoom(map.minZoom);
 						$.error("[world-wide-weather] Unable to load client position. " + status.message);
+					}
 				});
 			}
 		},
@@ -87,7 +77,7 @@
 		get: function(callback) {
 			navigator.geolocation.getCurrentPosition ( 
 				function(result) {
-					callback(result, 'OK');
+					callback(result, "OK");
 				}, 
 				function(error) {
 					callback(null, error);
@@ -113,9 +103,10 @@
 		} else if (typeof _opts == "string" && methods[_opts]) {
 			return methods[_opts](args);
 		} else {
-			$.error("[world-wide-weather] Unsuported parameter " + _opts);
+			$.error("[world-wide-weather] Unsuported method " + _opts);
 		}
-		
+
+		return container;
 	};
 
 	$.fn.weather.settings = {
