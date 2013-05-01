@@ -13,7 +13,7 @@ target/
 .project
 .settings
 
-###Android
+## Android
 # built application files
 *.apk
 *.ap_
@@ -27,3 +27,6 @@ gen/
 
 # Local configuration file (sdk path, etc)
 local.properties
+
+#Gedit temp files
+*.*~
